@@ -463,6 +463,13 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 .card-body{position:static;inset:auto;padding:1.25rem 1rem 1rem}
 @media (min-width:640px){.card-body{padding:1.5rem 1.5rem 1.5rem}}
 .card-body .card-meta{display:block;margin:0 0 .5rem;max-width:none;font-size:.72rem;color:rgba(255,255,255,.45)}
+.stat-num .plus{color:var(--accent-from);margin-left:.05em}
+.stat-now{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);display:flex;gap:.75rem;align-items:baseline;font-size:1rem;line-height:1.5;color:rgba(255,255,255,.65)}
+.stat-now strong{color:#fff;font-weight:600}
+.now-dot{flex:none;width:.55rem;height:.55rem;border-radius:50%;background:var(--accent-from);box-shadow:0 0 0 4px rgba(207,128,71,.25);transform:translateY(-.1rem)}
+@media (min-width:1024px){.stat-grid.two{grid-template-columns:repeat(2,minmax(0,22rem))}}
+.m-note.err{color:#b3261e}.m-note a{text-decoration:underline}
+.m-form button[disabled]{opacity:.6;pointer-events:none}
 </style>
 </head>
 <body>
@@ -884,15 +891,16 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
         <label><span>Email</span><input name="email" type="email" required placeholder="you@company.com" autocomplete="email"></label>
         <label><span>Message</span><textarea name="message" rows="4" required placeholder="A few words about the project or role, and your timeline."></textarea></label>
         <div class="m-foot">
-          <p class="m-note">This opens your email app with the message ready to send.</p>
-          <button class="pill-btn" type="submit"><span class="pill dark arrow"><span id="sendLbl">Write email</span><span class="ab"><svg class="i arr-ur"><use href="#aur"/></svg></span></span></button>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <p class="m-note" id="mNote">Your message comes straight to my inbox. I usually reply within a day.</p>
+          <button class="pill-btn" type="submit"><span class="pill dark arrow"><span id="sendLbl">Send message</span><span class="ab"><svg class="i arr-ur"><use href="#aur"/></svg></span></span></button>
         </div>
       </form>
     </div>
     <div class="m-success">
       <div class="ok"><img class="av" src="favicon.png?v=2" alt="" /></div>
-      <h2>Your email is ready</h2>
-      <p>Send it from your email app and I'll reply soon. You can also write directly to esratsultana25@gmail.com.</p>
+      <h2>Message sent</h2>
+      <p>Thank you for reaching out. I'll reply to your email soon.</p>
       <button class="pill-btn" id="mDone"><span class="pill dark">Close</span></button>
     </div>
   </div>
@@ -1121,7 +1129,7 @@ function closeModal(){
   if(!modal.classList.contains('mounted')) return;
   modal.classList.add('closing'); modal.classList.remove('open'); startScroll();
   setTimeout(()=>{ modal.classList.remove('mounted','closing'); lastFocus?.focus(); },reduce?0:400);
-  setTimeout(()=>{ modal.classList.remove('done'); form.reset(); document.getElementById('sendLbl').textContent='Write email'; },700);
+  setTimeout(()=>{ modal.classList.remove('done'); form.reset(); document.getElementById('sendLbl').textContent='Send message'; const n=document.getElementById('mNote'); n.textContent='Your message comes straight to my inbox. I usually reply within a day.'; n.classList.remove('err'); },700);
 }
 modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
 document.getElementById('mPanel').addEventListener('click',e=>e.stopPropagation());
@@ -1130,10 +1138,14 @@ document.getElementById('mDone').addEventListener('click',closeModal);
 form.addEventListener('submit',e=>{
   e.preventDefault();
   const d=new FormData(form);
-  document.getElementById('sendLbl').textContent='Opening…';
-  const subject=encodeURIComponent(`Hello from ${d.get('name')}`);
-  const body=encodeURIComponent(`${d.get('message')}\n\n${d.get('name')}\n${d.get('email')}`);
-  setTimeout(()=>{ location.href=`mailto:esratsultana25@gmail.com?subject=${subject}&body=${body}`; modal.classList.add('done'); },350);
+  if(d.get('_honey')) return;
+  const lbl=document.getElementById('sendLbl'), note=document.getElementById('mNote'), btn=form.querySelector('[type=submit]');
+  lbl.textContent='Sending…'; btn.disabled=true; note.classList.remove('err');
+  fetch('https://formsubmit.co/ajax/esratsultana25@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name:d.get('name'),email:d.get('email'),message:d.get('message'),_replyto:d.get('email'),_subject:`Portfolio message from ${d.get('name')}`,_template:'table',_captcha:'false'})})
+  .then(r=>r.json()).then(j=>{ if(j.success===false||j.success==='false') throw new Error(j.message); modal.classList.add('done'); })
+  .catch(()=>{ lbl.textContent='Try again'; note.innerHTML='Sorry, that didn\'t send. Please try again, or email me at <a href="mailto:esratsultana25@gmail.com">esratsultana25@gmail.com</a>.'; note.classList.add('err'); })
+  .finally(()=>{ btn.disabled=false; if(lbl.textContent==='Sending…') lbl.textContent='Send message'; });
 });
 
 /* ---------- routing ---------- */
