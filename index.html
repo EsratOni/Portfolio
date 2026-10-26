@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#0a0a0a" />
 <meta property="og:title" content="Esrat Sultana — UX Researcher &amp; Designer" />
 <meta property="og:description" content="UX research and design: interviews, surveys, synthesis and evidence-based product design." />
-<link rel="icon" type="png" href="favicon.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="favicon.png?v=2" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -442,6 +442,27 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 /* quieter project tags so they don't read as buttons */
 .tags{gap:.25rem .75rem}.tag{border:0;background:none;color:rgba(255,255,255,.6);border-radius:0;padding:0;font-size:.8rem;letter-spacing:.02em}.tags{gap:.25rem .5rem}.tag{white-space:nowrap}.tag:not(:last-child)::after{content:'·';margin-left:.5rem;color:rgba(255,255,255,.35)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.av{width:1.35em;height:1.35em;border-radius:50%;display:block;flex:none;object-fit:cover}
+.hcard-tile .av,.m-success .ok .av{width:100%;height:100%}.hcard-tile,.m-success .ok{overflow:hidden;padding:0}
+.hcard-tile{position:relative;background:var(--ink)}
+.hcard-tile .ill{position:absolute;inset:12%;width:76%;height:76%;opacity:0;transform:scale(.9);transition:opacity .4s,transform .4s}
+.hcard-tile .ill.on{opacity:1;transform:none}
+.toolkit{margin-top:2.5rem;border-top:1px solid var(--line);padding-top:1.75rem}
+.tk-h{font-size:1.25rem;font-weight:600;letter-spacing:-.01em;margin:0 0 1rem}
+.tk-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+.tk-grid li{display:flex;flex-direction:column;gap:.2rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.tk-k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tk-v{font-size:1rem;color:var(--fg)}
+@media (min-width:768px){.tk-grid{grid-template-columns:repeat(2,1fr);column-gap:2.5rem}}
+@media (min-width:1200px){.tk-grid{grid-template-columns:repeat(5,1fr);column-gap:1.5rem}.tk-grid li{border-bottom:0;padding:0}}
+.card{display:flex;flex-direction:column;min-height:0;padding:.5rem}
+.card-img{position:relative;aspect-ratio:2/1;border-radius:calc(var(--r-card) - .5rem);overflow:hidden;background:#1a1a1a}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--e-hover)}
+.card-link:hover .card-img img{transform:scale(1.04)}
+.card-img .badge{position:absolute;top:.75rem;right:.75rem;background:rgba(10,10,10,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.card-body{position:static;inset:auto;padding:1.25rem 1rem 1rem}
+@media (min-width:640px){.card-body{padding:1.5rem 1.5rem 1.5rem}}
+.card-body .card-meta{display:block;margin:0 0 .5rem;max-width:none;font-size:.72rem;color:rgba(255,255,255,.45)}
 </style>
 </head>
 <body>
@@ -460,7 +481,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 <!-- Loader -->
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader-center">
-    <div class="loader-brand"><svg class="i"><use href="#logo"/></svg>Esrat Sultana</div>
+    <div class="loader-brand"><img class="av" src="favicon.png?v=2" alt="" />Esrat Sultana</div>
     <p class="loader-tag">Find out what people need. Then design for it.</p>
   </div>
   <div class="progress">
@@ -472,7 +493,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 <!-- Header -->
 <header class="header">
   <div class="shell">
-    <button class="brand h-scale" data-go="home" aria-label="Esrat Sultana, back to top"><span class="hs hs-s brand"><svg class="i"><use href="#logo"/></svg>Esrat</span></button>
+    <button class="brand h-scale" data-go="home" aria-label="Esrat Sultana, back to top"><span class="hs hs-s brand"><img class="av" src="favicon.png?v=2" alt="" />Esrat</span></button>
     <nav class="primary-nav" aria-label="Main">
       <ul>
         <li><button class="navlink" data-go="home" aria-current="page"><span class="hs" style="display:inline-block">Home</span></button></li>
@@ -521,7 +542,11 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
       <div class="hero-right">
         <div class="hcard" data-reveal data-gate style="--ry:16px;--rs:.96;--d:400ms">
           <div class="hcard-row" id="hcard" role="button" tabindex="0" aria-label="Show next highlight">
-            <div class="hcard-tile"><svg class="i"><use href="#logo"/></svg></div>
+            <div class="hcard-tile" id="htile" aria-hidden="true">
+              <svg class="ill on" viewBox="0 0 96 96"><rect x="20" y="14" width="56" height="70" rx="6" fill="#f1f0ee"/><rect x="36" y="9" width="24" height="10" rx="3" fill="#cf8047"/><rect x="28" y="30" width="8" height="8" rx="2" fill="#cf8047"/><path d="M29.5 34l2 2 3.5-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/><rect x="40" y="32" width="28" height="4" rx="2" fill="#b6b6b6"/><rect x="28" y="45" width="8" height="8" rx="2" fill="#cf8047"/><path d="M29.5 49l2 2 3.5-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/><rect x="40" y="47" width="22" height="4" rx="2" fill="#b6b6b6"/><rect x="28" y="60" width="8" height="8" rx="2" fill="none" stroke="#b6b6b6" stroke-width="1.6"/><rect x="40" y="62" width="25" height="4" rx="2" fill="#b6b6b6"/></svg>
+              <svg class="ill" viewBox="0 0 96 96"><path d="M14 22h44a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H32l-10 8v-8h-8a6 6 0 0 1-6-6V28a6 6 0 0 1 6-6z" fill="#f1f0ee"/><rect x="18" y="31" width="34" height="4" rx="2" fill="#b6b6b6"/><rect x="18" y="40" width="24" height="4" rx="2" fill="#b6b6b6"/><path d="M42 50h38a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6h-4v8l-10-8H42a6 6 0 0 1-6-6V56a6 6 0 0 1 6-6z" fill="#cf8047"/><rect x="45" y="59" width="30" height="4" rx="2" fill="#fff" opacity=".85"/><rect x="45" y="67" width="20" height="4" rx="2" fill="#fff" opacity=".85"/></svg>
+              <svg class="ill" viewBox="0 0 96 96"><rect x="12" y="16" width="30" height="30" rx="3" fill="#f6e27a" transform="rotate(-5 27 31)"/><rect x="50" y="14" width="30" height="30" rx="3" fill="#bfd7f2" transform="rotate(4 65 29)"/><rect x="16" y="52" width="30" height="30" rx="3" fill="#f4c6cf" transform="rotate(3 31 67)"/><rect x="54" y="50" width="30" height="30" rx="3" fill="#cf8047" transform="rotate(-4 69 65)"/><rect x="18" y="26" width="18" height="3" rx="1.5" fill="#111" opacity=".5" transform="rotate(-5 27 31)"/><rect x="56" y="24" width="18" height="3" rx="1.5" fill="#111" opacity=".5" transform="rotate(4 65 29)"/><rect x="22" y="62" width="18" height="3" rx="1.5" fill="#111" opacity=".5"/><rect x="60" y="60" width="18" height="3" rx="1.5" fill="#fff" opacity=".8"/></svg>
+            </div>
             <div class="hcard-panel">
               <div class="slot" id="slot" aria-live="polite"></div>
               <div class="hcard-ctrl">
@@ -539,7 +564,6 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
           <ul>
             <li class="partner"><svg class="i"><use href="#dot"/></svg>Softvence Agency</li>
             <li class="partner"><svg class="i"><use href="#dot"/></svg>Qwik IT Services</li>
-            <li class="partner"><svg class="i"><use href="#dot"/></svg>Turtle Studio</li>
           </ul>
         </div>
       </div>
@@ -586,17 +610,6 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
       <h2 class="h2 lines" data-lines data-delay="120"><span class="ln"><span>Where I've worked</span></span></h2>
 
       <ol class="tl">
-        <li class="tl-item" data-reveal style="--ry:24px;--d:0ms">
-          <div class="tl-when"><span class="tl-date">Current</span></div>
-          <div class="tl-body">
-            <h3>Co-founder &amp; COO</h3>
-            <p class="tl-org">Turtle Studio, IT Solutions agency, Dhaka</p>
-            <ul class="tl-points">
-              <li>Run operations and client communication alongside design work</li>
-              <li>Bring user research into client conversations before design starts</li>
-            </ul>
-          </div>
-        </li>
         <li class="tl-item" data-reveal style="--ry:24px;--d:80ms">
           <div class="tl-when"><span class="tl-date">Jul 2025 – May 2026</span><span class="tl-len">11 months</span></div>
           <div class="tl-body">
@@ -662,9 +675,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
         <li data-reveal style="--ry:48px;--d:0ms">
           <a class="card-link" href="https://www.behance.net/gallery/253028781/Kiosk-Self-Ordering-Order-Smarter-Wait-Less" target="_blank" rel="noopener">
             <article class="card">
-              <div class="card-meta"><span>UX research — Team case study</span><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
-              <div class="card-mark" aria-hidden="true"><span class="big">65<small>surveyed</small></span></div>
+              <div class="card-img"><img src="work-kiosk.jpg" alt="FoodCo kiosk self-ordering screen" loading="lazy" /><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
               <div class="card-body">
+                <p class="card-meta">UX research — Team case study</p>
                 <h3>Kiosk self-ordering</h3>
                 <p>Where do restaurant customers lose time when ordering? Our team surveyed 65 customers; I ran 5 in-depth interviews and the competitive analysis, then turned the findings into a faster ordering flow.</p>
                 <div class="tags"><span class="tag">Survey</span><span class="tag">Interviews</span><span class="tag">Competitive analysis</span></div>
@@ -675,9 +688,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
         <li data-reveal style="--ry:48px;--d:90ms">
           <a class="card-link" href="#contact-anchor" data-contact>
             <article class="card">
-              <div class="card-meta"><span>Health UX — In progress</span><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
-              <div class="card-mark" aria-hidden="true"><span class="big">Rx</span></div>
+              <div class="card-img"><img src="work-clinic.jpg" alt="Clinic patient experience survey banner" loading="lazy" /><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
               <div class="card-body">
+                <p class="card-meta">Health UX — In progress</p>
                 <h3>Outpatient clinic experience</h3>
                 <p>An independent study of why clinic visits in Bangladesh feel slow and confusing. A patient survey is running now; interviews, a journey map and a tested prototype come next.</p>
                 <div class="tags"><span class="tag">Patient survey</span><span class="tag">Journey mapping</span><span class="tag">Research ethics</span></div>
@@ -688,9 +701,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
                 <li data-reveal style="--ry:48px;--d:180ms">
           <a class="card-link" href="https://www.behance.net/gallery/240620019/Fit-AI-AI-Powered-3D-Body-Scanning-Fitness-App" target="_blank" rel="noopener">
             <article class="card">
-              <div class="card-meta"><span>AI fitness app — Mobile</span><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
-              <div class="card-mark" aria-hidden="true"><span class="big">3D<small>body scan</small></span></div>
+              <div class="card-img"><img src="work-fitai.jpg" alt="Fit AI app home screen with body analysis" loading="lazy" /><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
               <div class="card-body">
+                <p class="card-meta">AI fitness app — Mobile</p>
                 <h3>Fit AI</h3>
                 <p>A fitness app that uses AI-powered 3D body scanning to show how your body changes and tailor training to you.</p>
                 <div class="tags"><span class="tag">Mobile app</span><span class="tag">AI</span><span class="tag">3D body scanning</span></div>
@@ -701,9 +714,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
         <li data-reveal style="--ry:48px;--d:270ms">
           <a class="card-link" href="https://www.behance.net/gallery/248340139/PILLAR-Build-the-Best-You" target="_blank" rel="noopener">
             <article class="card">
-              <div class="card-meta"><span>Branding — Small project</span><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
-              <div class="card-mark" aria-hidden="true"><span class="big">PILLAR</span></div>
+              <div class="card-img"><img src="work-pillar.jpg" alt="PILLAR app screens and logo" loading="lazy" /><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
               <div class="card-body">
+                <p class="card-meta">Branding — Small project</p>
                 <h3>PILLAR: Build the Best You</h3>
                 <p>A small branding project: a visual identity for PILLAR, shaped around its promise to help people build the best version of themselves.</p>
                 <div class="tags"><span class="tag">Branding</span><span class="tag">Visual identity</span></div>
@@ -769,6 +782,16 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
           </dl>
         </li>
       </ol>
+      <div class="toolkit" data-reveal style="--ry:16px">
+        <h3 class="tk-h">Tools I use</h3>
+        <ul class="tk-grid">
+          <li><span class="tk-k">Surveys</span><span class="tk-v">Google Forms, Excel for the response sheet</span></li>
+          <li><span class="tk-k">Interviews &amp; synthesis</span><span class="tk-v">Affinity mapping in Miro and Figma</span></li>
+          <li><span class="tk-k">Design</span><span class="tk-v">Figma</span></li>
+          <li><span class="tk-k">Prototyping</span><span class="tk-v">Figma prototypes</span></li>
+          <li><span class="tk-k">AI assistants</span><span class="tk-v">Claude, ChatGPT, Figma Make</span></li>
+        </ul>
+      </div>
       <p class="ethics" data-reveal style="--ry:12px"><strong>In every study:</strong> informed consent, anonymised responses, and neutral questions that don't lead people to an answer.</p>
     </div>
   </section>
@@ -798,7 +821,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
     </div>
     <div class="f-cols">
       <div>
-        <div class="f-brand"><svg class="i"><use href="#logo"/></svg>Esrat Sultana</div>
+        <div class="f-brand"><img class="av" src="favicon.png?v=2" alt="" />Esrat Sultana</div>
         <p class="f-tag">UX researcher and designer in Dhaka. Interviews, surveys and synthesis, turned into products people can use.</p>
       </div>
       <div class="f-col"><p class="f-title">Navigate</p><ul>
@@ -831,7 +854,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 <!-- Nav overlay -->
 <div class="navmenu" id="navmenu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="nm-top"><div class="shell">
-    <div class="nm-brand"><svg class="i"><use href="#logo"/></svg>Esrat Sultana</div>
+    <div class="nm-brand"><img class="av" src="favicon.png?v=2" alt="" />Esrat Sultana</div>
     <button class="close-btn" id="menuClose"><svg class="i"><use href="#x"/></svg>Close</button>
   </div></div>
   <nav class="nm-nav"><div class="shell"><ul id="nmList">
@@ -868,7 +891,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
       </form>
     </div>
     <div class="m-success">
-      <div class="ok"><svg class="i"><use href="#logo"/></svg></div>
+      <div class="ok"><img class="av" src="favicon.png?v=2" alt="" /></div>
       <h2>Your email is ready</h2>
       <p>Send it from your email app and I'll reply soon. You can also write directly to esratsultana25@gmail.com.</p>
       <button class="pill-btn" id="mDone"><span class="pill dark">Close</span></button>
@@ -987,7 +1010,7 @@ document.querySelectorAll('[data-year]').forEach(n=>n.textContent=new Date().get
 const items=[
   {cap:'Research',title:'65 customers surveyed.'},
   {cap:'Interviews',title:'5 deep conversations.'},
-  {cap:'Right now',title:'Studying clinic visits.'}
+  {cap:'Synthesis',title:'Patterns from the notes.'}
 ];
 const slot=document.getElementById('slot'), dots=[...document.querySelectorAll('#dots i')];
 let idx=0, cur=null;
@@ -998,7 +1021,7 @@ function render(step){
   slot.append(el);
   if(cur){ const old=cur; old.classList.add(step>0?'hide-up':'hide-down'); setTimeout(()=>old.remove(),450); }
   requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('hide-up','hide-down')));
-  cur=el; dots.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  cur=el; dots.forEach((d,i)=>d.classList.toggle('on',i===idx)); document.querySelectorAll('#htile .ill').forEach((d,i)=>d.classList.toggle('on',i===idx));
 }
 function go(step){ idx=(idx+step+items.length)%items.length; render(step); }
 render(0);
