@@ -470,6 +470,78 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 @media (min-width:1024px){.stat-grid.two{grid-template-columns:repeat(2,minmax(0,22rem))}}
 .m-note.err{color:#b3261e}.m-note a{text-decoration:underline}
 .m-form button[disabled]{opacity:.6;pointer-events:none}
+.hook{align-self:flex-start;display:inline-flex;align-items:center;gap:.6rem;margin-bottom:-.75rem;padding:.35rem .9rem .35rem .35rem;border-radius:9999px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06),0 0 0 1px rgba(17,17,17,.08);font-size:.85rem;color:#111;max-width:100%;transition:box-shadow .3s,transform .3s}
+.hook:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08),0 0 0 1px rgba(177,95,44,.35)}
+.hook-tag{display:inline-flex;align-items:center;gap:.4rem;flex:none;padding:.25rem .6rem;border-radius:9999px;background:#0f6e64;color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.hook-dot{width:.45rem;height:.45rem;border-radius:50%;background:#7ee0c9;box-shadow:0 0 0 0 rgba(126,224,201,.7);animation:hookPulse 1.8s infinite}
+@keyframes hookPulse{70%{box-shadow:0 0 0 7px rgba(126,224,201,0)}100%{box-shadow:0 0 0 0 rgba(126,224,201,0)}}
+.hook-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.hook .i{flex:none;font-size:.9rem;color:var(--accent)}
+.survey .shell{padding-top:3rem}
+.sv-card{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center;border-radius:var(--r-card);background:#e6f3ef;padding:1.5rem;overflow:hidden}
+@media (min-width:1024px){.sv-card{grid-template-columns:1.05fr 1fr;gap:3rem;padding:3rem}}
+.sv-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0f6e64}
+.sv-tag .hook-dot{background:#0f9d84}
+.sv-h{margin-top:.9rem;font-size:1.75rem;line-height:1.15;font-weight:600;letter-spacing:-.02em;color:#0d3b36}
+@media (min-width:640px){.sv-h{font-size:2.4rem}}
+.sv-p{margin-top:1rem;max-width:34rem;font-size:1rem;line-height:1.55;color:rgba(13,59,54,.75)}
+.sv-ctas{margin-top:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.25rem}
+.sv-ctas .pill.dark{background:#0f6e64}
+.sv-note{font-size:.8rem;color:rgba(13,59,54,.6)}
+.sv-img{display:block;border-radius:calc(var(--r-card) - .75rem);overflow:hidden;aspect-ratio:1400/376;box-shadow:0 10px 30px rgba(13,59,54,.12)}
+.sv-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.sv-img:hover img{transform:scale(1.03)}
+.hk-short{display:none}
+@media (max-width:639px){.hook{font-size:.8rem}.hk-long{display:none}.hk-short{display:inline}}
+.sv-modal{align-items:center}
+.sv-panel{max-width:46rem;height:min(88vh,52rem);display:flex;flex-direction:column;gap:1rem;padding:1.25rem}
+@media (min-width:640px){.sv-panel{padding:1.75rem}}
+.sv-mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-right:2.75rem}
+.sv-mhead .m-close{top:1.25rem;right:1.25rem}
+.sv-mtitle{margin-top:.4rem;font-size:1.25rem;font-weight:600;letter-spacing:-.01em;color:#0d3b36}
+.sv-frame{position:relative;flex:1;min-height:0;border-radius:1rem;overflow:hidden;background:#f3f6f5}
+.sv-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .4s}
+.sv-modal.loaded .sv-frame iframe{opacity:1}
+.sv-loading{position:absolute;inset:0;display:grid;place-items:center;font-size:.9rem;color:rgba(13,59,54,.6)}
+.sv-alt{font-size:.8rem;color:rgba(17,17,17,.55)}.sv-alt a{color:#0f6e64;text-decoration:underline}
+@media (max-width:639px){.sv-modal{padding:.5rem}.sv-panel{height:94vh}}
+/* survey hook v2 */
+.hook{position:relative;overflow:hidden;gap:.65rem;padding:.4rem .4rem .4rem .4rem;background:#0d3b36;color:#fff;box-shadow:0 10px 30px -8px rgba(15,110,100,.55),0 0 0 1px rgba(15,110,100,.4);font-size:.9rem;animation:hookIn .9s var(--e-spring) 1.6s both}
+.hook::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);animation:hookShine 3.6s ease-in-out 2.4s infinite;pointer-events:none}
+.hook:hover{transform:translateY(-2px);box-shadow:0 14px 34px -8px rgba(15,110,100,.7),0 0 0 1px rgba(126,224,201,.6)}
+.hook-tag{background:#7ee0c9;color:#0d3b36}
+.hook-tag .hook-dot{background:#0d3b36;animation:hookPulse2 1.6s infinite}
+.hook-txt{font-weight:500;color:#fff}
+.hook-go{display:inline-flex;align-items:center;gap:.35rem;flex:none;padding:.35rem .75rem;border-radius:9999px;background:#cf8047;color:#fff;font-weight:600;font-size:.8rem}
+.hook-go .i{color:#fff;font-size:.85rem;animation:hookNudge 1.4s ease-in-out infinite}
+.hook>.i{display:none}
+@keyframes hookShine{0%{transform:translateX(-120%)}35%,100%{transform:translateX(120%)}}
+@keyframes hookNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@keyframes hookPulse2{0%{box-shadow:0 0 0 0 rgba(13,59,54,.6)}70%{box-shadow:0 0 0 6px rgba(13,59,54,0)}100%{box-shadow:0 0 0 0 rgba(13,59,54,0)}}
+@keyframes hookIn{0%{transform:scale(.96)}40%{transform:scale(1.04)}100%{transform:none}}
+@media (max-width:639px){.hook{font-size:.8rem;gap:.5rem}.hook-go{padding:.3rem .6rem;font-size:.72rem}.hook-tag{padding:.2rem .5rem;font-size:.65rem}}
+@media (max-width:639px){.hook{align-self:stretch;padding:.45rem .45rem .45rem .9rem}.hook-tag{display:none}.hook-txt{flex:1;white-space:normal;line-height:1.3}}
+.sv-h{font-size:1.6rem}
+@media (min-width:640px){.sv-h{font-size:2.2rem}}
+.sv-h2{display:block;margin-top:.5rem;font-size:.62em;font-weight:500;color:#0f6e64}
+.sv-cta{position:relative;font-size:1rem;padding-block:.95rem}
+.sv-cta::before{content:"";position:absolute;inset:-4px;border-radius:9999px;border:2px solid rgba(15,110,100,.45);animation:ctaRing 2s ease-out infinite;pointer-events:none}
+@keyframes ctaRing{0%{transform:scale(.96);opacity:1}100%{transform:scale(1.12);opacity:0}}
+.sv-fab{position:fixed;z-index:90;right:1.25rem;bottom:1.25rem;display:flex;align-items:center;gap:.4rem;opacity:0;transform:translateY(24px) scale(.95);pointer-events:none;transition:opacity .45s var(--e-spring),transform .55s var(--e-spring)}
+.sv-fab.show{opacity:1;transform:none;pointer-events:auto}
+.sv-fab-btn{display:flex;align-items:center;gap:.75rem;padding:.55rem .6rem .55rem .55rem;border-radius:9999px;background:#0d3b36;color:#fff;box-shadow:0 18px 40px -10px rgba(13,59,54,.6),0 0 0 1px rgba(126,224,201,.35);transition:transform .3s}
+.sv-fab.show .sv-fab-btn{animation:fabWiggle 7s ease-in-out 1.5s infinite}
+.sv-fab-btn:hover{transform:translateY(-2px)}
+.sv-fab-ic{width:2.5rem;height:2.5rem;flex:none;display:grid;place-items:center;border-radius:50%;background:#7ee0c9;color:#0d3b36;position:relative}
+.sv-fab-ic::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(126,224,201,.7);animation:hookPulse 1.8s infinite}
+.sv-fab-txt{display:flex;flex-direction:column;line-height:1.2}
+.sv-fab-txt strong{font-size:.9rem;font-weight:600}
+.sv-fab-txt small{font-size:.72rem;color:rgba(255,255,255,.65)}
+.sv-fab-go{width:2.25rem;height:2.25rem;display:grid;place-items:center;border-radius:50%;background:#cf8047;color:#fff;flex:none}
+.sv-fab-x{width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:50%;background:#fff;color:rgba(17,17,17,.6);box-shadow:0 4px 14px rgba(0,0,0,.15);font-size:.8rem;align-self:flex-start}
+@keyframes fabWiggle{0%,88%,100%{transform:none}90%{transform:translateY(-4px) rotate(-2deg)}92%{transform:translateY(0) rotate(2deg)}94%{transform:translateY(-2px) rotate(-1deg)}96%{transform:none}}
+@media (max-width:639px){.sv-fab{left:.75rem;right:.75rem;bottom:.75rem}.sv-fab-btn{flex:1}.sv-fab-txt{flex:1}}
+@media (prefers-reduced-motion:reduce){.hook,.hook::after,.hook-go .i,.sv-cta::before,.sv-fab-btn,.sv-fab-ic::after{animation:none!important}}
 </style>
 </head>
 <body>
@@ -532,6 +604,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 
     <div class="shell hero-grid">
       <div class="hero-left">
+        <a class="hook" href="https://forms.gle/yYhtJWbfc9dB1w86A" data-survey target="_blank" rel="noopener" data-reveal data-gate style="--ry:10px;--d:150ms"><span class="hook-tag"><span class="hook-dot"></span>Live study</span><span class="hook-txt"><span class="hk-long">Been to a clinic in Bangladesh? Share your experience</span><span class="hk-short">Been to a clinic? Share your experience</span></span><span class="hook-go">Take survey<svg class="i"><use href="#ar"/></svg></span></a>
         <span class="eyebrow" data-reveal data-gate style="--ry:10px;--d:200ms">UX researcher and designer in Dhaka</span>
         <h1 class="h1 lines" data-lines data-gate data-delay="250" data-stagger="120">
           <span class="ln"><span>I design from</span></span>
@@ -581,6 +654,24 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
         <span>Move your cursor: sketch to final</span>
         <span class="mid">Based in Dhaka, working remotely</span>
         <span class="scroll">Scroll to explore <span aria-hidden="true">↓</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Survey -->
+  <section class="survey" id="survey" aria-label="Outpatient clinic survey">
+    <div class="shell">
+      <div class="sv-card" data-reveal style="--ry:32px;--rs:.99">
+        <div class="sv-text">
+          <span class="sv-tag"><span class="hook-dot"></span>Live study · Outpatient clinic experience</span>
+          <h2 class="sv-h">Queues, paperwork, waiting rooms: how was your last clinic visit?<span class="sv-h2">Your answers shape a real UX study on clinics in Bangladesh.</span></h2>
+          <p class="sv-p">If you've visited a clinic or hospital outpatient department, I'd love to hear about it. The survey is short and anonymous.</p>
+          <div class="sv-ctas">
+            <a class="pill-btn" href="https://forms.gle/yYhtJWbfc9dB1w86A" data-survey target="_blank" rel="noopener"><span class="pill dark arrow sv-cta">Take the survey<span class="ab"><svg class="i arr-ur"><use href="#aur"/></svg></span></span></a>
+            <span class="sv-note">Voluntary · Responses kept confidential</span>
+          </div>
+        </div>
+        <a class="sv-img" href="https://forms.gle/yYhtJWbfc9dB1w86A" data-survey target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="survey-banner.jpg" alt="" loading="lazy" /></a>
       </div>
     </div>
   </section>
@@ -693,7 +784,7 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
           </a>
         </li>
         <li data-reveal style="--ry:48px;--d:90ms">
-          <a class="card-link" href="#contact-anchor" data-contact>
+          <a class="card-link" href="https://forms.gle/yYhtJWbfc9dB1w86A" data-survey target="_blank" rel="noopener" aria-label="Outpatient clinic experience: take the survey">
             <article class="card">
               <div class="card-img"><img src="work-clinic.jpg" alt="Clinic patient experience survey banner" loading="lazy" /><span class="badge"><svg class="i"><use href="#aur"/></svg></span></div>
               <div class="card-body">
@@ -877,6 +968,28 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
   </div></div>
 </div>
 
+<!-- Floating survey button -->
+<div class="sv-fab" id="svFab" aria-hidden="true">
+  <a class="sv-fab-btn" href="https://forms.gle/yYhtJWbfc9dB1w86A" data-survey target="_blank" rel="noopener" tabindex="-1">
+    <span class="sv-fab-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 11 1.5 1.5L13 10"/><path d="M9 16h6"/></svg></span>
+    <span class="sv-fab-txt"><strong>Help my clinic study</strong><small>Short survey · anonymous</small></span>
+    <span class="sv-fab-go"><svg class="i"><use href="#ar"/></svg></span>
+  </a>
+  <button class="sv-fab-x" id="svFabX" aria-label="Hide survey button" tabindex="-1"><svg class="i"><use href="#x"/></svg></button>
+</div>
+
+<!-- Survey modal -->
+<div class="modal sv-modal" id="svModal" role="dialog" aria-modal="true" aria-labelledby="svTitle">
+  <div class="m-panel sv-panel" id="svPanel">
+    <div class="sv-mhead">
+      <div><span class="sv-tag"><span class="hook-dot"></span>Live study</span><h2 class="sv-mtitle" id="svTitle">Outpatient clinic experience survey</h2></div>
+      <button class="m-close" id="svClose" aria-label="Close survey"><svg class="i"><use href="#x"/></svg></button>
+    </div>
+    <div class="sv-frame"><div class="sv-loading">Loading the survey…</div><iframe id="svFrame" title="Outpatient clinic experience survey" loading="lazy"></iframe></div>
+    <p class="sv-alt">Trouble seeing the form? <a href="https://forms.gle/yYhtJWbfc9dB1w86A" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+  </div>
+</div>
+
 <!-- Contact modal -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="m-panel" id="mPanel">
@@ -899,8 +1012,8 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
     </div>
     <div class="m-success">
       <div class="ok"><img class="av" src="favicon.png?v=2" alt="" /></div>
-      <h2>Message sent</h2>
-      <p>Thank you for reaching out. I'll reply to your email soon.</p>
+      <h2>Email sent</h2>
+      <p>Thank you for your message. I will try to contact you as soon as possible.</p>
       <button class="pill-btn" id="mDone"><span class="pill dark">Close</span></button>
     </div>
   </div>
@@ -1144,7 +1257,7 @@ form.addEventListener('submit',e=>{
   fetch('https://formsubmit.co/ajax/esratsultana25@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify({name:d.get('name'),email:d.get('email'),message:d.get('message'),_replyto:d.get('email'),_subject:`Portfolio message from ${d.get('name')}`,_template:'table',_captcha:'false'})})
   .then(r=>r.json()).then(j=>{ if(j.success===false||j.success==='false') throw new Error(j.message); modal.classList.add('done'); })
-  .catch(()=>{ lbl.textContent='Try again'; note.innerHTML='Sorry, that didn\'t send. Please try again, or email me at <a href="mailto:esratsultana25@gmail.com">esratsultana25@gmail.com</a>.'; note.classList.add('err'); })
+  .catch(err=>{ console.warn('Form error:',err&&err.message); lbl.textContent='Try again'; note.innerHTML=(err&&/activat/i.test(err.message)?'This form is waiting for activation. Check esratsultana25@gmail.com (also Spam) for the FormSubmit email. ':'')+'Sorry, that didn\'t send. Please try again, or email me at <a href="mailto:esratsultana25@gmail.com">esratsultana25@gmail.com</a>.'; note.classList.add('err'); })
   .finally(()=>{ btn.disabled=false; if(lbl.textContent==='Sending…') lbl.textContent='Send message'; });
 });
 
@@ -1155,11 +1268,37 @@ document.addEventListener('click',e=>{
   const g=e.target.closest('[data-go]');
   if(g){ e.preventDefault(); const id=g.dataset.go; closeNav(()=>goTo(id)); }
 });
+/* ---------- survey modal (Google Form inside the site) ---------- */
+const svModal=document.getElementById('svModal'), svFrame=document.getElementById('svFrame');
+let svLast=null;
+function openSurvey(){ svLast=document.activeElement; if(!svFrame.src) svFrame.src='https://docs.google.com/forms/d/e/1FAIpQLSdk9s3Nu0q5U2-Polys2p4mxZaKQ-EUHJVz9f-kEUaEBh5Y8w/viewform?embedded=true'; svModal.classList.add('mounted'); stopScroll(); requestAnimationFrame(()=>requestAnimationFrame(()=>svModal.classList.add('open'))); setTimeout(()=>document.getElementById('svClose').focus(),80); }
+function closeSurvey(){ if(!svModal.classList.contains('mounted')) return; svModal.classList.add('closing'); svModal.classList.remove('open'); startScroll(); setTimeout(()=>{ svModal.classList.remove('mounted','closing'); svLast?.focus(); },reduce?0:400); }
+svFrame.addEventListener('load',()=>svModal.classList.add('loaded'));
+svModal.addEventListener('click',e=>{ if(e.target===svModal) closeSurvey(); });
+document.getElementById('svClose').addEventListener('click',closeSurvey);
+document.addEventListener('click',e=>{ const a=e.target.closest('[data-survey]'); if(!a) return; e.preventDefault(); e.stopPropagation(); openSurvey(); },true);
+addEventListener('keydown',e=>{ if(e.key==='Escape') closeSurvey(); });
 addEventListener('keydown',e=>{
   if(e.key!=='Escape') return;
   if(modal.classList.contains('mounted')) closeModal();
   else if(nav.classList.contains('mounted')) closeNav();
 });
+
+/* ---------- floating survey button ---------- */
+(()=>{
+  const fab=document.getElementById('svFab'), sec=document.getElementById('survey'), foot=document.querySelector('footer');
+  let hidden=false; try{ hidden=sessionStorage.getItem('svFabHidden')==='1'; }catch(e){}
+  const vis=new Set();
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target)); upd(); },{threshold:.15});
+  [sec,foot].forEach(el=>el&&io.observe(el));
+  function upd(){
+    const show=!hidden && scrollY>innerHeight*.7 && !vis.size && !document.querySelector('.modal.mounted');
+    fab.classList.toggle('show',show); fab.setAttribute('aria-hidden',show?'false':'true');
+    fab.querySelectorAll('a,button').forEach(el=>el.tabIndex=show?0:-1);
+  }
+  addEventListener('scroll',upd,{passive:true}); setInterval(upd,800);
+  document.getElementById('svFabX').addEventListener('click',()=>{ hidden=true; try{ sessionStorage.setItem('svFabHidden','1'); }catch(e){} upd(); });
+})();
 </script>
 </body>
 </html>
