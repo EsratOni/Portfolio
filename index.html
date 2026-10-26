@@ -8,7 +8,8 @@
 <meta name="theme-color" content="#0a0a0a" />
 <meta property="og:title" content="Esrat Sultana — UX Researcher &amp; Designer" />
 <meta property="og:description" content="UX research and design: interviews, surveys, synthesis and evidence-based product design." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23b15f2c' d='M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z'/%3E%3C/svg%3E" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -259,8 +260,6 @@ svg.i{width:1em;height:1em;flex:none;display:block}
 @media (min-width:1024px){#process .shell{padding-block:7rem}}
 #process .h2{margin:1.25rem 0 3rem;max-width:16ch}
 @media (min-width:640px){#process .h2{margin-bottom:3.5rem}}
-.methods{display:flex;flex-wrap:wrap;gap:.5rem;margin:-1.5rem 0 2.5rem}
-.methods li{border:1px solid var(--line);background:var(--surface);border-radius:9999px;padding:.5rem 1rem;font-size:.875rem;font-weight:500;color:rgba(17,17,17,.75)}
 .rows li{border-top:1px solid var(--line)}
 .rows li:first-child{border-top:0}
 .row-link{display:block}
@@ -386,6 +385,62 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
 @media (max-width:1023px){
   .vignette{background:linear-gradient(to bottom,rgba(255,255,255,.78),rgba(255,255,255,.6) 55%,rgba(255,255,255,.45))}
 }
+/* ---------- experience ---------- */
+.exp .shell{padding-block:5rem}
+@media (min-width:1024px){.exp .shell{padding-block:7rem}}
+.exp .h2{margin:1.25rem 0 3rem}
+.tl{position:relative;display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:1fr;gap:.5rem;position:relative;padding:0 0 2.5rem 1.75rem;border-left:1px solid var(--line)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-.4rem;top:.35rem;width:.8rem;height:.8rem;border-radius:9999px;background:var(--bg);border:2px solid var(--accent)}
+.tl-item:first-child::before{background:var(--accent)}
+@media (min-width:768px){
+  .tl-item{grid-template-columns:12rem 1fr;gap:2.5rem;padding-left:0;border-left:0}
+  .tl-item::before{left:12.85rem}
+  .tl-item::after{content:"";position:absolute;left:13.24rem;top:1.4rem;bottom:-.2rem;width:1px;background:var(--line)}
+  .tl-item:last-child::after{display:none}
+  .tl-body{padding-left:2rem}
+}
+.tl-when{display:flex;flex-direction:column;gap:.15rem}
+.tl-date{font-size:.875rem;font-weight:600;color:#111;font-variant-numeric:tabular-nums}
+.tl-len{font-size:.8rem;color:rgba(17,17,17,.45)}
+.tl-body h3{font-size:1.5rem;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.tl-org{margin-top:.25rem;font-size:.95rem;color:rgba(17,17,17,.6)}
+.tl-points{margin-top:1rem;display:flex;flex-direction:column;gap:.5rem;max-width:44rem}
+.tl-points li{position:relative;padding-left:1.1rem;font-size:.95rem;line-height:1.5;color:rgba(17,17,17,.75)}
+.tl-points li::before{content:"";position:absolute;left:0;top:.6rem;width:.4rem;height:1px;background:rgba(17,17,17,.4)}
+.exp-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media (min-width:1024px){.exp-grid{grid-template-columns:repeat(3,1fr)}}
+.exp-col{background:var(--surface);border-radius:var(--r-card-sm);padding:1.5rem}
+.exp-h{font-size:1.125rem;font-weight:600;letter-spacing:-.01em}
+.exp-org{margin-top:.25rem;font-size:.875rem;color:rgba(17,17,17,.55)}
+.exp-list{margin-top:1.25rem;display:flex;flex-direction:column;gap:1rem}
+.exp-list li{display:flex;flex-direction:column;gap:.2rem;padding-top:1rem;border-top:1px solid var(--surface-2)}
+.exp-list li:first-child{padding-top:0;border-top:0}
+.exp-role{font-size:.95rem;font-weight:500;color:#111;line-height:1.35}
+.exp-date{font-size:.8rem;color:rgba(17,17,17,.55)}
+.exp-note{font-size:.85rem;line-height:1.45;color:rgba(17,17,17,.65);margin-top:.15rem}
+
+/* ---------- research process ---------- */
+.proc-lead{max-width:40rem;font-size:1.0625rem;line-height:1.55;color:rgba(17,17,17,.65);margin:-1.5rem 0 3rem}
+.proc{display:grid;grid-template-columns:1fr;gap:1rem}
+@media (min-width:768px){.proc{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1200px){.proc{grid-template-columns:repeat(5,1fr)}}
+.step{position:relative;background:var(--surface);border-radius:var(--r-card-sm);padding:1.5rem;display:flex;flex-direction:column}
+.step-n{width:2.25rem;height:2.25rem;border-radius:9999px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.875rem;font-weight:600;margin-bottom:1.25rem}
+.step:nth-child(2) .step-n{background:var(--accent)}
+.step h3{font-size:1.375rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.5rem}
+.step>p{font-size:.95rem;line-height:1.5;color:rgba(17,17,17,.7);margin-bottom:1.25rem}
+.step dl{margin-top:auto;border-top:1px solid var(--surface-2);padding-top:1rem;display:flex;flex-direction:column}
+.step dt{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(17,17,17,.45)}
+.step dd{font-size:.875rem;line-height:1.45;color:#111;margin:.2rem 0 .85rem}
+.step dd:last-child{margin-bottom:0}
+.step .step-eg{margin:1rem 0 0;font-size:.8rem;font-weight:500;color:var(--accent);line-height:1.4}
+.ethics{margin-top:2rem;max-width:44rem;padding-left:1rem;border-left:2px solid var(--accent);font-size:.95rem;line-height:1.55;color:rgba(17,17,17,.7)}
+.ethics strong{color:#111;font-weight:600}
+
+/* quieter project tags so they don't read as buttons */
+.tags{gap:.25rem .75rem}.tag{border:0;background:none;color:rgba(255,255,255,.6);border-radius:0;padding:0;font-size:.8rem;letter-spacing:.02em}.tags{gap:.25rem .5rem}.tag{white-space:nowrap}.tag:not(:last-child)::after{content:'·';margin-left:.5rem;color:rgba(255,255,255,.35)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -422,8 +477,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
       <ul>
         <li><button class="navlink" data-go="home" aria-current="page"><span class="hs" style="display:inline-block">Home</span></button></li>
         <li><button class="navlink" data-go="works"><span class="hs" style="display:inline-block">Work</span></button></li>
-        <li><button class="navlink" data-go="process"><span class="hs" style="display:inline-block">Methods</span></button></li>
+        <li><button class="navlink" data-go="process"><span class="hs" style="display:inline-block">Process</span></button></li>
         <li><button class="navlink" data-go="about"><span class="hs" style="display:inline-block">About</span></button></li>
+        <li><button class="navlink" data-go="experience"><span class="hs" style="display:inline-block">Experience</span></button></li>
         <li><button class="navlink" data-contact><span class="hs" style="display:inline-block">Contact</span></button></li>
       </ul>
     </nav>
@@ -483,8 +539,6 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
           <ul>
             <li class="partner"><svg class="i"><use href="#dot"/></svg>Softvence Agency</li>
             <li class="partner"><svg class="i"><use href="#dot"/></svg>Qwik IT Services</li>
-            <li class="partner"><svg class="i"><use href="#dot"/></svg>Case Study Club BD</li>
-            <li class="partner"><svg class="i"><use href="#dot"/></svg>NITER Computer Club</li>
             <li class="partner"><svg class="i"><use href="#dot"/></svg>Turtle Studio</li>
           </ul>
         </div>
@@ -520,6 +574,78 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
             </div>
           </div>
           <a class="pill-btn" href="Esrat_Sultana_CV.pdf" download><span class="pill outline arrow">Download CV<span class="ab"><svg class="i arr-r"><use href="#ar"/></svg></span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="exp">
+    <div class="shell">
+      <span class="eyebrow" data-reveal style="--ry:10px">Experience</span>
+      <h2 class="h2 lines" data-lines data-delay="120"><span class="ln"><span>Where I've worked</span></span></h2>
+
+      <ol class="tl">
+        <li class="tl-item" data-reveal style="--ry:24px;--d:0ms">
+          <div class="tl-when"><span class="tl-date">Current</span></div>
+          <div class="tl-body">
+            <h3>Co-founder &amp; COO</h3>
+            <p class="tl-org">Turtle Studio, IT Solutions agency, Dhaka</p>
+            <ul class="tl-points">
+              <li>Run operations and client communication alongside design work</li>
+              <li>Bring user research into client conversations before design starts</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal style="--ry:24px;--d:80ms">
+          <div class="tl-when"><span class="tl-date">Jul 2025 – May 2026</span><span class="tl-len">11 months</span></div>
+          <div class="tl-body">
+            <h3>UI/UX Designer</h3>
+            <p class="tl-org">Softvence Agency, Dhaka</p>
+            <ul class="tl-points">
+              <li>Owned client projects from brief to developer handoff: flows, wireframes, prototypes and final UI</li>
+              <li>Ran UX reviews of client products to find usability issues before redesign</li>
+              <li>Built reusable Figma components and presented designs to clients, iterating on their feedback</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal style="--ry:24px;--d:160ms">
+          <div class="tl-when"><span class="tl-date">Apr 2025 – Jun 2025</span><span class="tl-len">3 months</span></div>
+          <div class="tl-body">
+            <h3>UI/UX Designer (Intern)</h3>
+            <p class="tl-org">Qwik IT Services, Canada (remote)</p>
+            <ul class="tl-points">
+              <li>Audited and redesigned a fitness app, and designed an employee-tracking dashboard</li>
+              <li>Designed a calorie-tracking health app with quick, simple logging flows</li>
+              <li>Joined design reviews with the development team through to production</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="exp-grid">
+        <div class="exp-col" data-reveal style="--ry:20px">
+          <h3 class="exp-h">Extracurricular</h3>
+          <p class="exp-org">NITER Computer Club</p>
+          <ul class="exp-list">
+            <li><span class="exp-role">Head of Graphics Design Segment</span><span class="exp-date">May 2025 – Present</span></li>
+            <li><span class="exp-role">UI/UX Instructor</span><span class="exp-date">Mar 2025 – May 2025</span><span class="exp-note">Taught UX principles, research basics and Figma to student designers</span></li>
+            <li><span class="exp-role">Senior Executive</span><span class="exp-date">Jan 2024 – Jan 2025</span></li>
+          </ul>
+        </div>
+        <div class="exp-col" data-reveal style="--ry:20px;--d:80ms">
+          <h3 class="exp-h">Courses &amp; certifications</h3>
+          <ul class="exp-list">
+            <li><span class="exp-role">Case Study &amp; Career Boost Workshop 7.0</span><span class="exp-date">Case Study Club BD, Jul 2026</span><span class="exp-note">UX research, UX audit, user research, business research</span></li>
+            <li><span class="exp-role">UI/UX Design</span><span class="exp-date">Ostad</span></li>
+            <li><span class="exp-role">Transition into UX for Healthcare</span><span class="exp-date">HXR Labs on Maven, in progress</span></li>
+          </ul>
+        </div>
+        <div class="exp-col" data-reveal style="--ry:20px;--d:160ms">
+          <h3 class="exp-h">Education</h3>
+          <ul class="exp-list">
+            <li><span class="exp-role">BSc in Computer Science and Engineering</span><span class="exp-date">National Institute of Textile Engineering and Research (NITER), 2022 – 2026</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -602,17 +728,58 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
   <!-- Process -->
   <section id="process">
     <div class="shell">
-      <span class="eyebrow" data-reveal style="--ry:10px">Methods</span>
+      <span class="eyebrow" data-reveal style="--ry:10px">Research process</span>
       <h2 class="h2 lines" data-lines data-delay="120"><span class="ln"><span>How I research</span></span></h2>
-      <ul class="methods" data-reveal style="--ry:16px">
-        <li>Qualitative research</li><li>Quantitative research</li><li>User interviews</li><li>User surveys</li><li>Research synthesis</li><li>Affinity mapping</li><li>Competitive analysis</li><li>Journey mapping</li>
-      </ul>
-      <ul class="rows">
-        <li data-reveal style="--ry:24px;--d:0ms"><a class="row-link" href="#works" data-go="works"><div class="row hs"><span class="idx">01</span><h3>Qualitative research</h3><p>User interviews and observation that uncover what people need, and why.</p><span class="row-arrow"><svg class="i"><use href="#aur"/></svg></span></div></a></li>
-        <li data-reveal style="--ry:24px;--d:80ms"><a class="row-link" href="#works" data-go="works"><div class="row hs"><span class="idx">02</span><h3>Quantitative research</h3><p>User surveys that show how common a problem is, like the 65 responses in the kiosk study.</p><span class="row-arrow"><svg class="i"><use href="#aur"/></svg></span></div></a></li>
-        <li data-reveal style="--ry:24px;--d:160ms"><a class="row-link" href="#works" data-go="works"><div class="row hs"><span class="idx">03</span><h3>Research synthesis</h3><p>Affinity mapping, competitive analysis and journey maps that turn raw notes into clear findings.</p><span class="row-arrow"><svg class="i"><use href="#aur"/></svg></span></div></a></li>
-        <li data-reveal style="--ry:24px;--d:240ms"><a class="row-link" href="#works" data-go="works"><div class="row hs"><span class="idx">04</span><h3>Design from evidence</h3><p>Flows and prototypes built on the findings, then tested with real users.</p><span class="row-arrow"><svg class="i"><use href="#aur"/></svg></span></div></a></li>
-      </ul>
+      <p class="proc-lead" data-reveal style="--ry:12px">Every project moves through five stages, using both qualitative and quantitative research. Each stage ends with something the team can use.</p>
+      <ol class="proc">
+        <li class="step" data-reveal style="--ry:24px;--d:0ms">
+          <span class="step-n">1</span>
+          <h3>Frame</h3>
+          <p>Turn a vague brief into clear research questions and the assumptions worth testing.</p>
+          <dl>
+            <dt>Methods</dt><dd>Stakeholder conversations, desk research, research plan</dd>
+            <dt>Output</dt><dd>Research questions and a plan</dd>
+          </dl>
+        </li>
+        <li class="step" data-reveal style="--ry:24px;--d:80ms">
+          <span class="step-n">2</span>
+          <h3>Discover</h3>
+          <p>Hear from real people, in depth and at scale.</p>
+          <dl>
+            <dt>Methods</dt><dd>User interviews, user surveys, observation, competitive analysis</dd>
+            <dt>Output</dt><dd>Interview notes and survey data</dd>
+          </dl>
+          <p class="step-eg">Kiosk study: 65 people surveyed, 5 interviewed</p>
+        </li>
+        <li class="step" data-reveal style="--ry:24px;--d:160ms">
+          <span class="step-n">3</span>
+          <h3>Synthesise</h3>
+          <p>Find the patterns behind what people said and did.</p>
+          <dl>
+            <dt>Methods</dt><dd>Affinity mapping, qualitative coding, survey analysis, journey maps</dd>
+            <dt>Output</dt><dd>Key insights, each backed by evidence</dd>
+          </dl>
+        </li>
+        <li class="step" data-reveal style="--ry:24px;--d:240ms">
+          <span class="step-n">4</span>
+          <h3>Design</h3>
+          <p>Turn insights into ideas the team can see and react to.</p>
+          <dl>
+            <dt>Methods</dt><dd>User flows, wireframes, prototypes in Figma</dd>
+            <dt>Output</dt><dd>A prototype ready to test</dd>
+          </dl>
+        </li>
+        <li class="step" data-reveal style="--ry:24px;--d:320ms">
+          <span class="step-n">5</span>
+          <h3>Test and refine</h3>
+          <p>Check the design with real users before it is built.</p>
+          <dl>
+            <dt>Methods</dt><dd>Usability testing, task success, iteration</dd>
+            <dt>Output</dt><dd>Fixes and a clean developer handoff</dd>
+          </dl>
+        </li>
+      </ol>
+      <p class="ethics" data-reveal style="--ry:12px"><strong>In every study:</strong> informed consent, anonymised responses, and neutral questions that don't lead people to an answer.</p>
     </div>
   </section>
 
@@ -646,8 +813,9 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
       </div>
       <div class="f-col"><p class="f-title">Navigate</p><ul>
         <li><a class="alink" href="#works" data-go="works"><span class="hs">Work</span></a></li>
-        <li><a class="alink" href="#process" data-go="process"><span class="hs">Methods</span></a></li>
+        <li><a class="alink" href="#process" data-go="process"><span class="hs">Process</span></a></li>
         <li><a class="alink" href="#about" data-go="about"><span class="hs">About</span></a></li>
+        <li><a class="alink" href="#experience" data-go="experience"><span class="hs">Experience</span></a></li>
         <li><a class="alink" href="#" data-contact><span class="hs">Contact</span></a></li>
       </ul></div>
       <div class="f-col"><p class="f-title">Work</p><ul>
@@ -679,9 +847,10 @@ footer .shell{position:relative;z-index:10;padding-top:5rem;padding-bottom:2.5re
   <nav class="nm-nav"><div class="shell"><ul id="nmList">
     <li><button class="nm-item" data-go="home"><span class="n">01</span><span class="l">Home</span></button></li>
     <li><button class="nm-item" data-go="works"><span class="n">02</span><span class="l">Work</span></button></li>
-    <li><button class="nm-item" data-go="process"><span class="n">03</span><span class="l">Methods</span></button></li>
+    <li><button class="nm-item" data-go="process"><span class="n">03</span><span class="l">Process</span></button></li>
     <li><button class="nm-item" data-go="about"><span class="n">04</span><span class="l">About</span></button></li>
-    <li><button class="nm-item" data-contact><span class="n">05</span><span class="l">Contact</span></button></li>
+    <li><button class="nm-item" data-go="experience"><span class="n">05</span><span class="l">Experience</span></button></li>
+    <li><button class="nm-item" data-contact><span class="n">06</span><span class="l">Contact</span></button></li>
   </ul></div></nav>
   <div class="nm-bottom"><div class="shell">
     <span>Dhaka time — <span data-time>9:41am</span></span>
